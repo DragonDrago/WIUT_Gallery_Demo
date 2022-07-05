@@ -1,0 +1,35 @@
+﻿@model GalleryPhoto
+
+@{
+    ViewBag.Title = "Delete Photo";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1 class="col-md-8 offset-2">Delete @Model.Name</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                    <div class="form-group text-center">
+                         <img  src="/Home/GalleryImage/@Model.Id" class=" border-info rounded-circle" style="max-width:200px" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label asp-for = "Name" class="control-label"></label>
+                        <input asp-for = "Name" class="form-control" readonly />
+                        <span asp-validation-for = "Name" class="text-danger"></span>
+                    </div>
+                   
+                    <div class="form-group">
+                        <form asp-action="DeletePhoto">
+                            <input type="hidden" asp-for="@Model.Id"/>
+                            <input type="submit" value="Confirm" class="btn btn-danger float-right" onclick="return confirm('Are you sure to Delete');" />
+                        </form>
+                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
